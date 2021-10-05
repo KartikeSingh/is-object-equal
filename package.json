@@ -1,0 +1,24 @@
+{
+  "name": "is-object-equal",
+  "version": "1.0.0",
+  "description": "Check if two objects are equal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KartikeSingh/is-object-equal.git"
+  },
+  "keywords": [
+    "is",
+    "equal",
+    "object"
+  ],
+  "author": "Shisui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KartikeSingh/is-object-equal/issues"
+  },
+  "homepage": "https://github.com/KartikeSingh/is-object-equal#readme"
+}
