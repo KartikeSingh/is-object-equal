@@ -1,10 +1,21 @@
-module.exports = function isEqual(ob1, ob2, {
-    ignoreCase = false,
-    allowExtra = false
-}) {
+/**
+ * An module to check if two objects are equal or not
+ * @param {Object} ob1 The first object
+ * @param {Object} ob2 The second object
+ * @param {Object} options The options
+ * @param {Boolean} options.allowExtra Allow extra properties in second object ?
+ * @param {Boolean} options.ignoreCase Allow different cases in the objects ?
+ * @returns {true | false} true or false
+ */
+module.exports = function isEqual(ob1, ob2, options = {}) {
+    const {
+        ignoreCase = false,
+        allowExtra = false
+    } = options;
+
     let equals = true, keys = Object.keys(ob1);
 
-    if (!allowExtra && Object.keys(ob2).length !== keys.length);
+    if (!allowExtra && Object.keys(ob2).length !== keys.length)return false;
 
     for (let i = 0; i < keys.length; i++) {
         let v1 = ob1[keys[i]], v2 = ob2[keys[i]];
@@ -12,7 +23,7 @@ module.exports = function isEqual(ob1, ob2, {
         if (typeof (v1) !== typeof (v2)) { equals = false; break };
 
         if (typeof (v1) === "object") {
-            equals = isEqual({ ignoreCase, allowExtra }, v1, v2);
+            equals = isEqual(v1, v2,{ ignoreCase, allowExtra });
 
             if (!equals) break;
         } else if (typeof (v1) === "string") {
