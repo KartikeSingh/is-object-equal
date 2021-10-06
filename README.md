@@ -11,9 +11,14 @@ An module to check if the provided two objects are equal or not
 - Customizable
 
 # How ?
+
 ```js
-const isEqual = require('is-object-equal');
-https://discord.com/api/webhooks/894612602339082311/hVJdkUR4j5_LXhUEeEQdANhA6Ll3rh03V0NQNLcPXapIs8u1v6M_VaZjcFG9LQjUQ68x/github
+// Importing for Node JS
+const isEqual = require('is-object-equal').default;
+
+// Importing for TypeScript / vanilla JavaScript
+import isEqual from 'is-object-equal';
+
 const ob1 = {
     name:"Shisui",
     hobby:["coding"],

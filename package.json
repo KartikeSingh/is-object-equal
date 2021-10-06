@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/KartikeSingh/is-object-equal/issues"
   },
-  "homepage": "https://github.com/KartikeSingh/is-object-equal#readme"
+  "homepage": "https://github.com/KartikeSingh/is-object-equal#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }

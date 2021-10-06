@@ -7,15 +7,19 @@
  * @param {Boolean} options.ignoreCase Allow different cases in the objects ?
  * @returns {true | false} true or false
  */
-module.exports = function isEqual(ob1, ob2, options = {}) {
+module.exports.default = function isEqual(ob1, ob2, options = {}) {
     const {
         ignoreCase = false,
         allowExtra = false
     } = options;
 
+    if (ob1 == null && ob2 == null) return true;
+    else if (ob1 == null && ob2 != null) return false;
+    else if (ob1 != null && ob2 == null) return false;
+
     let equals = true, keys = Object.keys(ob1);
 
-    if (!allowExtra && Object.keys(ob2).length !== keys.length)return false;
+    if (!allowExtra && Object.keys(ob2).length !== keys.length) return false;
 
     for (let i = 0; i < keys.length; i++) {
         let v1 = ob1[keys[i]], v2 = ob2[keys[i]];
@@ -23,7 +27,7 @@ module.exports = function isEqual(ob1, ob2, options = {}) {
         if (typeof (v1) !== typeof (v2)) { equals = false; break };
 
         if (typeof (v1) === "object") {
-            equals = isEqual(v1, v2,{ ignoreCase, allowExtra });
+            equals = isEqual(v1, v2, { ignoreCase, allowExtra });
 
             if (!equals) break;
         } else if (typeof (v1) === "string") {
