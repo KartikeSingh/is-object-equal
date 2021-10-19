@@ -1,13 +1,22 @@
 /**
+ * Options for isEqual module
+ */
+interface Options {
+    /**
+     * Allow extra properties in second object ?
+     */
+    allowExtra?: boolean,
+    /**
+     * Allow different cases in the objects ?
+     */
+    ignoreCase?: boolean,
+}
+
+/**
  * An module to check if two objects are equal or not
- * @param {Object} ob1 The first object
- * @param {Object} ob2 The second object
- * @param {Object} options The options
- * @param {Boolean} options.allowExtra Allow extra properties in second object ?
- * @param {Boolean} options.ignoreCase Allow different cases in the objects ?
  * @returns {true | false} true or false
  */
-module.exports.default = function isEqual(ob1, ob2, options = {}) {
+export default function isEqual(ob1: Object, ob2: Object, options: Options = {}):boolean {
     const {
         ignoreCase = false,
         allowExtra = false
