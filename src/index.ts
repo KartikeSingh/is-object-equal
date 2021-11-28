@@ -16,22 +16,23 @@ interface Options {
  * An module to check if two objects are equal or not
  * @returns {true | false} true or false
  */
-export default function isEqual(ob1: Object, ob2: Object, options: Options = {}):boolean {
+export default function isEqual(ob1: any, ob2: any, options: Options = {}): boolean {
     const {
         ignoreCase = false,
         allowExtra = false
     } = options;
 
     if (ob1 == null && ob2 == null) return true;
-    else if (ob1 == null && ob2 != null) return false;
-    else if (ob1 != null && ob2 == null) return false;
+    else if (ob1 == null || ob2 == null) return false;
 
-    let equals = true, keys = Object.keys(ob1);
+    if (typeof (ob1) !== "object" || typeof (ob2) !== 'object') throw new Error("First two paramter should be a object or array");
+
+    let equals = true, keys: string[] = Object.keys(ob1);
 
     if (!allowExtra && Object.keys(ob2).length !== keys.length) return false;
 
     for (let i = 0; i < keys.length; i++) {
-        let v1 = ob1[keys[i]], v2 = ob2[keys[i]];
+        let v1: any = ob1[keys[i]], v2: any = ob2[keys[i]];
 
         if (typeof (v1) !== typeof (v2)) { equals = false; break };
 

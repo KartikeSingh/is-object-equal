@@ -1,7 +1,12 @@
 {
-    "include": ["./src/*"],
-    "compilerOptions": {
-      "allowJs": true,
-      "outDir": "dist"
-    }
+  "compilerOptions": {
+      "forceConsistentCasingInFileNames": true,
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "target": "ES2021",
+      "skipLibCheck": true,
+      "strict": true
   }
+}
